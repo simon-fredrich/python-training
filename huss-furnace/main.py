@@ -56,9 +56,7 @@ while running:
             smoke_particles.remove(particle)
         else:
             # get mouse parameters
-            mouse_pos = pygame.mouse.get_pos()
-            mouse_X = mouse_pos[0]
-            mouse_Y = mouse_pos[1]
+            (mouse_X, mouse_Y) = pygame.mouse.get_pos()
             # let particle be desturbed by the mouse
             if (particle.x < mouse_X + mouse_radius and particle.x > mouse_X - mouse_radius and particle.y < mouse_Y + mouse_radius and particle.y > mouse_Y - mouse_radius):
                 particle.angle += random.uniform(-math.pi/3, math.pi/3)
