@@ -15,6 +15,11 @@ ofen_img = pygame.image.load("./huss_ofen.jpg")
 ofen_img = pygame.transform.scale(ofen_img, (90, 200))
 pygame.mixer.music.load("./coin-drop.mp3")
 
+# mouse parameters
+mouse_X = 0
+mouse_Y = 0
+mouse_radius = 20
+
 # setting up the screen
 screen = pygame.display.set_mode((width, height))
 screen.fill(background_color)
@@ -41,7 +46,7 @@ while running:
     # for every particle decide if delete or move and display
     for particle in smoke_particles:
         if (particle.x < 0 or particle.x > width or particle.y < 0 or particle.y > height):
-            # music play
+            # music play (discontinued)
             if (coin_count == 1000):
                 #pygame.mixer.music.play()
                 coin_count = 0
@@ -50,10 +55,18 @@ while running:
 
             smoke_particles.remove(particle)
         else:
-            if (particle.y < 50):
-                particle.angle += math.pi/3
+            # get mouse parameters
+            mouse_pos = pygame.mouse.get_pos()
+            mouse_X = mouse_pos[0]
+            mouse_Y = mouse_pos[1]
+            # let particle be desturbed by the mouse
+            if (particle.x < mouse_X + mouse_radius and particle.x > mouse_X - mouse_radius and particle.y < mouse_Y + mouse_radius and particle.y > mouse_Y - mouse_radius):
+                particle.angle += random.uniform(-math.pi/3, math.pi/3)
+                particle.speed *= 1.2
+
             particle.move()
             particle.display()
+
 
     pygame.display.flip()
 
