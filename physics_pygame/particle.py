@@ -21,7 +21,7 @@ class Particle:
         self.x = x
         self.y = y
         self.rad = rad
-        self.color = (200, 0, 30)
+        self.color = (0, 255, 0)
         self.thickness = 2
         self.speed = 1.5
         self.angle = math.pi/4

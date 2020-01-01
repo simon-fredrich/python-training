@@ -4,7 +4,7 @@ from random import randint
 from particle import Particle
 
 (width, height) = (1000, 800)
-background_color = (30, 0, 200)
+background_color = (255, 0, 0)
 particles = []
 particle_number = 30
 
