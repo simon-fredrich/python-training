@@ -1,4 +1,5 @@
 from __future__ import print_function
+import numpy as np
 import torch
 
 print("Tensors:")
@@ -15,7 +16,7 @@ x = x.new_ones(5, 3, dtype=torch.double)
 x = torch.randn_like(x, dtype=torch.float)
 print(x)
 # size of tensor
-print(x.size()) # returns a tuple
+print(x.size())  # returns a tuple
 
 # Operations:
 print("Operations:")
@@ -36,7 +37,7 @@ print(x[:, 1])
 
 # resizing/reshape a tensor
 print("\nRESIZING:")
-x = torch.randn(4,4)
+x = torch.randn(4, 4)
 print(x)
 y = x.view(16)
 print(y)
@@ -64,7 +65,6 @@ print(b)
 
 # numpy into torch
 print("numpy to torch:")
-import numpy as np
 a = np.ones(5)
 b = torch.from_numpy(a)
 np.add(a, 1, out=a)
@@ -72,7 +72,7 @@ print(a)
 print(b)
 
 
-#CUDA tensors:
+# CUDA tensors:
 print("CUDA tensors:")
 if torch.cuda.is_available():
     device = torch.device("cuda")

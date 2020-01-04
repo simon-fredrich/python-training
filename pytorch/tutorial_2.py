@@ -1,7 +1,8 @@
+from __future__ import print_function
 import torch
 
 # Create tensor with requires_grad=True to track computation
-x = torch.ones(2,2, requires_grad=True)
+x = torch.ones(2, 2, requires_grad=True)
 print(x)
 
 # compute with x
