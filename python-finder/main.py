@@ -1,6 +1,7 @@
 import sys, pygame
 from Grid import Grid
 from Tile import *
+import random
 pygame.init()
 
 size = width, height = 1000, 1000
@@ -15,6 +16,8 @@ tile_width = 30
 tile_height = 30
 x_quant = int(width/tile_width)
 y_quant = int(height/tile_height)
+
+find_object = random.randint(0, 500)
 
 while 1:
     for event in pygame.event.get():
@@ -34,8 +37,8 @@ while 1:
         x_tile = x_tile + 30
         y_tile = 0
         
-    tiles[200].color = [200, 0, 0]
-    tiles[200].draw()
+    tiles[find_object].color = [200, 0, 0]
+    tiles[find_object].draw()
 
     for tile in tiles:
         if tile.color == [200, 0, 0]:
