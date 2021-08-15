@@ -1,6 +1,7 @@
 import discord
 import python_weather
 import wikipedia
+import os
 
 client = discord.Client()
 
@@ -28,4 +29,4 @@ async def on_message(message):
             await message.channel.send("In " + query.capitalize() + " sind es " + str(weather.current.temperature) + " Grad.")
             await wclient.close()
             
-client.run("ODc2NDA2NDQ1MTExOTA2MzQ1.YRjnGw.M_nKCP9UnrnfhF-4QtcynZjx3lI")
+client.run(os.getenv("BOT_1_TOKEN"))
